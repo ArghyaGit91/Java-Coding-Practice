@@ -19,7 +19,14 @@ public class StreamPracticeMain {
         );
 
 
+        /*
+        * Find list of employees whose name starts with alphabet A
+        * */
         streamPractice.findListOfNameStartWithA(nameList);
+
+        /*
+        *Group The employees By Department Names
+        * */
         streamPractice.groupByDepartmentNames(employees);
     }
 }
