@@ -11,11 +11,11 @@ public class StreamPracticeMain {
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
 
         List<EmployeeDetail> employees = List.of(
-                new EmployeeDetail(1, "Amit", "IT"),
-                new EmployeeDetail(2, "Ravi", "HR"),
-                new EmployeeDetail(3, "Neha", "IT"),
-                new EmployeeDetail(4, "Priya", "Finance"),
-                new EmployeeDetail(5, "Suresh", "HR")
+                new EmployeeDetail(1, "Amit", "IT", 35),
+                new EmployeeDetail(2, "Ravi", "HR",30),
+                new EmployeeDetail(3, "Neha", "IT", 27),
+                new EmployeeDetail(4, "Priya", "Finance",28),
+                new EmployeeDetail(5, "Suresh", "HR", 37)
         );
 
 
@@ -28,5 +28,20 @@ public class StreamPracticeMain {
         *Group The employees By Department Names
         * */
         streamPractice.groupByDepartmentNames(employees);
+
+        /*
+        * Find the total count of employees using stream
+        * */
+        streamPractice.totalCountEmployee(employees);
+
+        /*
+        * Find the max age of employees
+        * */
+        streamPractice.findMaxAge(employees);
+
+        /*
+        * Find all department names
+        * */
+        streamPractice.findAllDepartments(employees);
     }
 }
