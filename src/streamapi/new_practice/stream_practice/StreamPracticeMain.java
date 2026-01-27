@@ -43,5 +43,15 @@ public class StreamPracticeMain {
         * Find all department names
         * */
         streamPractice.findAllDepartments(employees);
+
+        /*
+        * Find the count of employee in each department
+        * */
+        streamPractice.employeeCountOfEachDepartment(employees);
+
+        /*
+        * Find the list of employees whose age is less than 30
+        * */
+        streamPractice.listOfEmployeeAgeUnder30(employees);
     }
 }

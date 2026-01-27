@@ -1,5 +1,6 @@
 package streamapi.new_practice.stream_practice;
 
+import streamapi.new_practice.Employee;
 import streamapi.new_practice.stream_practice.pojo.EmployeeDetail;
 
 import java.util.Comparator;
@@ -42,5 +43,19 @@ public class StreamPractice {
     public void findAllDepartments(List<EmployeeDetail> employees) {
         List<String> allDepartments = employees.stream().map(employeeDetail -> employeeDetail.getDepartment()).distinct().toList();
         System.out.println("All Departments: "+allDepartments);
+    }
+
+    public void employeeCountOfEachDepartment(List<EmployeeDetail> employees){
+        Map<String, Long> result = employees.stream().collect(Collectors.groupingBy(emp -> emp.getDepartment(), Collectors.counting()));
+        System.out.println("Employee Count of Each Department: "+ result);
+    }
+
+    public void listOfEmployeeAgeUnder30(List<EmployeeDetail> employees){
+
+        List<EmployeeDetail> employeeList = employees.stream().filter(emp -> emp.getAge() < 30).toList();
+        List<String> employeeNames = employees.stream().filter(emp -> emp.getAge() < 30).map(emp -> emp.getName()).toList();
+        System.out.println("List of Employee Age Under 30: "+ employeeList);
+        System.out.println("List of Employee Name Age Under 30: "+ employeeNames);
+
     }
 }
