@@ -4,14 +4,24 @@ public class EmployeeDetail {
     private int id;
     private String name;
     private String department;
+    private String gender;
 
     private int age;
 
-    public EmployeeDetail(int id, String name, String department, int age) {
+    public EmployeeDetail(int id, String name, String department, int age, String gender) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.age = age;
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getId() {
@@ -54,6 +64,7 @@ public class EmployeeDetail {
                 ", name='" + name + '\'' +
                 ", department='" + department + '\'' +
                 ", age=" +age + '\''+
+                ", gender=" +gender +'\''+
                 '}';
     }
 }

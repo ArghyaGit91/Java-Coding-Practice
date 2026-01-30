@@ -58,4 +58,19 @@ public class StreamPractice {
         System.out.println("List of Employee Name Age Under 30: "+ employeeNames);
 
     }
+
+    public void ageBetween26To31(List<EmployeeDetail> employees) {
+
+        List<EmployeeDetail> employeeList = employees.stream().filter(emp -> emp.getAge() > 26 && emp.getAge() < 31).toList();
+        System.out.println("List of Employee Age between 26 & 31: "+ employeeList);
+    }
+
+    public void averageAgeOfMaleAndFemale(List<EmployeeDetail> employees) {
+
+        Map<String, Double> result = employees.stream().collect(Collectors.groupingBy(
+                employeeDetail -> employeeDetail.getGender(), Collectors.averagingInt(emp -> emp.getAge())
+        ));
+        System.out.println("Average Age of Male & Female: "+ result);
+
+    }
 }

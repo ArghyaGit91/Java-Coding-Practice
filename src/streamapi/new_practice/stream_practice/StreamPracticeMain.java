@@ -11,11 +11,12 @@ public class StreamPracticeMain {
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
 
         List<EmployeeDetail> employees = List.of(
-                new EmployeeDetail(1, "Amit", "IT", 35),
-                new EmployeeDetail(2, "Ravi", "HR",30),
-                new EmployeeDetail(3, "Neha", "IT", 27),
-                new EmployeeDetail(4, "Priya", "Finance",28),
-                new EmployeeDetail(5, "Suresh", "HR", 37)
+                new EmployeeDetail(1, "Amit", "IT", 35, "Male"),
+                new EmployeeDetail(2, "Ravi", "HR",30, "Male"),
+                new EmployeeDetail(3, "Neha", "IT", 27, "Female"),
+                new EmployeeDetail(4, "Priya", "Finance",28, "Female"),
+                new EmployeeDetail(5, "Suresh", "HR", 37, "Male"),
+                new EmployeeDetail(6, "Animesh", "Civil", 26, "Male")
         );
 
 
@@ -53,5 +54,15 @@ public class StreamPracticeMain {
         * Find the list of employees whose age is less than 30
         * */
         streamPractice.listOfEmployeeAgeUnder30(employees);
+
+        /*
+        * Find the list of employees whose age is in between 26 and 31
+        * */
+        streamPractice.ageBetween26To31(employees);
+
+        /*
+        * Find the average age of male and female employee
+        * */
+        streamPractice.averageAgeOfMaleAndFemale(employees);
     }
 }
