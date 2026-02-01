@@ -3,10 +3,7 @@ package streamapi.new_practice.stream_practice;
 import streamapi.new_practice.Employee;
 import streamapi.new_practice.stream_practice.pojo.EmployeeDetail;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamPractice {
@@ -71,6 +68,32 @@ public class StreamPractice {
                 employeeDetail -> employeeDetail.getGender(), Collectors.averagingInt(emp -> emp.getAge())
         ));
         System.out.println("Average Age of Male & Female: "+ result);
+
+    }
+
+    public void findMaxAgeByEachDepartment(List<EmployeeDetail> employeeDetails){
+
+        Map<String, Integer> result = employeeDetails.stream().collect(Collectors.groupingBy(
+                emp -> emp.getDepartment(), Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparing(
+                        e -> e.getAge())), optEmp -> optEmp.isPresent() ? optEmp.get().getAge() : 0
+        )));
+
+
+
+        System.out.println("MaxAgeOfEachDepartment: "+ result);
+
+        Map<String, Map<String, Integer>> result2 =
+                employeeDetails.stream().collect(Collectors.groupingBy(
+                        employeeDetail -> employeeDetail.getDepartment(), Collectors.collectingAndThen(
+                                Collectors.maxBy(Comparator.comparing(
+                                        e -> e.getAge()
+                                )), optEmp -> optEmp.map(
+                                        employeeDetail -> Map.of(employeeDetail.getName(), employeeDetail.getAge())
+                                ).orElse(Collections.emptyMap())
+                        )
+                ));
+
+        System.out.println("Maximum Age Of EachDepartment With Employee Name: "+ result2);
 
     }
 }

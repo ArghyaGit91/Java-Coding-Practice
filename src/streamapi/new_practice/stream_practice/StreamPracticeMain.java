@@ -64,5 +64,12 @@ public class StreamPracticeMain {
         * Find the average age of male and female employee
         * */
         streamPractice.averageAgeOfMaleAndFemale(employees);
+
+        /*
+        * Find the department who is having maximum number of employee
+        * {Civil=26, Finance=28, HR=37, IT=35}
+        * {Civil={Animesh=26}, Finance={Priya=28}, HR={Suresh=37}, IT={Amit=35}}
+        * */
+        streamPractice.findMaxAgeByEachDepartment(employees);
     }
 }
