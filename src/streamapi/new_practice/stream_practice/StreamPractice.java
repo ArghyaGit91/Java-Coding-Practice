@@ -96,4 +96,16 @@ public class StreamPractice {
         System.out.println("Maximum Age Of EachDepartment With Employee Name: "+ result2);
 
     }
+
+    public void findDepartmentWithMaximumEmployee(List<EmployeeDetail> employees) {
+        Map<String, Long> result = employees.stream().collect(Collectors.groupingBy(emp ->
+                emp.getDepartment(), Collectors.counting()
+        ));
+        System.out.println("Find Department With Maximum Employee: "+ result);
+//                .entrySet().stream().max(Map.Entry.comparingByValue()).map(optEmp -> Map.of(optEmp.getKey(), optEmp.getValue()))
+//                .orElse(Collections.emptyMap());
+        Map<String, Long> finalResult = result.entrySet().stream().max(Map.Entry.comparingByValue()).map(e-> Map.of(e.getKey(), e.getValue())).orElse(Collections.emptyMap());
+
+        System.out.println("Find Final Result Department With Maximum Employee: "+ finalResult);
+    }
 }

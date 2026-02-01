@@ -71,5 +71,10 @@ public class StreamPracticeMain {
         * {Civil={Animesh=26}, Finance={Priya=28}, HR={Suresh=37}, IT={Amit=35}}
         * */
         streamPractice.findMaxAgeByEachDepartment(employees);
+
+        /*
+        * Find the department who is having maximum number of employee
+        * */
+        streamPractice.findDepartmentWithMaximumEmployee(employees);
     }
 }
