@@ -108,4 +108,48 @@ public class StreamPractice {
 
         System.out.println("Find Final Result Department With Maximum Employee: "+ finalResult);
     }
+
+    public void findAndSortEmployeeStaysInDelhi(List<EmployeeDetail> employees) {
+        List<String> employeeList = employees.stream().filter(emp ->
+                emp.getAddress().equalsIgnoreCase("Delhi")).map(e -> e.getName()).sorted().toList();
+
+        System.out.println("Find and sort the employees who are staying in Delhi: "+ employeeList);
+    }
+
+    public void findAverageSalaryInAllDepartment(List<EmployeeDetail> employees) {
+
+        Map<String, Double> result = employees.stream().collect(Collectors.groupingBy(emp -> emp.getDepartment(),
+                Collectors.averagingLong(e -> e.getSalary())));
+
+        System.out.println("Find average salary from each department : "+ result);
+    }
+
+    public void findHighestSalaryInEachDepartment(List<EmployeeDetail> employees) {
+
+        Map<String, Map<String, Long>> result =
+        employees.stream().collect(Collectors.groupingBy(emp -> emp.getDepartment(), Collectors.collectingAndThen(
+                Collectors.maxBy(Comparator.comparing(e -> e.getSalary())), optEmp -> optEmp.map(
+                        employee -> Map.of(employee.getName(), employee.getSalary())
+                ).orElse(Collections.emptyMap())
+        )));
+
+        System.out.println("Find highest salary in each department: "+result);
+
+    }
+
+    public void listOfEmployeeSortWithSalary(List<EmployeeDetail> employees) {
+
+        List<EmployeeDetail> employeeList = employees.stream().sorted(Comparator.comparing((EmployeeDetail emp) -> emp.getSalary()).reversed()).toList();
+        System.out.println("List of Employee sort with Salary: "+employeeList);
+    }
+
+    public void find2ndHighestSalariedEmployee(List<EmployeeDetail> employees) {
+
+        Map<String, Long> employeeDetail = employees.stream().sorted(Comparator.comparing((EmployeeDetail emp) ->
+                emp.getSalary()).reversed()).skip(1).findFirst().map(e -> Map.of(e.getName(), e.getSalary())).orElse(null);
+
+        System.out.println("Find the employee who has 2nd highest salary: "+employeeDetail);
+
+//        Map<String, Long> result = employeeDetail.stream().map(e -> Map.of(e.getName(), e.getSalary()));
+    }
 }

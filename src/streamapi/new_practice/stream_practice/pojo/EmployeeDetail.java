@@ -5,15 +5,26 @@ public class EmployeeDetail {
     private String name;
     private String department;
     private String gender;
-
+    private String address;
     private int age;
+    private Long salary;
 
-    public EmployeeDetail(int id, String name, String department, int age, String gender) {
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
+
+    public EmployeeDetail(int id, String name, String department, int age, String gender, String address, Long salary) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.age = age;
         this.gender = gender;
+        this.address = address;
+        this.salary = salary;
     }
 
     public String getGender() {
@@ -44,6 +55,13 @@ public class EmployeeDetail {
         return department;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public int getAge() {
         return age;
@@ -65,6 +83,8 @@ public class EmployeeDetail {
                 ", department='" + department + '\'' +
                 ", age=" +age + '\''+
                 ", gender=" +gender +'\''+
+                ", address=" +address +'\''+
+                ", salary=" +salary +'\''+
                 '}';
     }
 }

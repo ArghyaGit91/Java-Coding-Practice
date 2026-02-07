@@ -11,12 +11,13 @@ public class StreamPracticeMain {
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
 
         List<EmployeeDetail> employees = List.of(
-                new EmployeeDetail(1, "Amit", "IT", 35, "Male"),
-                new EmployeeDetail(2, "Ravi", "HR",30, "Male"),
-                new EmployeeDetail(3, "Neha", "IT", 27, "Female"),
-                new EmployeeDetail(4, "Priya", "Finance",28, "Female"),
-                new EmployeeDetail(5, "Suresh", "HR", 37, "Male"),
-                new EmployeeDetail(6, "Animesh", "Civil", 26, "Male")
+                new EmployeeDetail(1, "Amit", "IT", 35, "Male", "Delhi", 35L),
+                new EmployeeDetail(2, "Ravi", "HR",30, "Male", "Delhi", 20L),
+                new EmployeeDetail(3, "Neha", "IT", 27, "Female","Kolkata", 25L),
+                new EmployeeDetail(4, "Priya", "Finance",28, "Female","UP", 15L),
+                new EmployeeDetail(5, "Suresh", "HR", 37, "Male","Bihar", 10L),
+                new EmployeeDetail(6, "Animesh", "Civil", 26, "Male","Kolkata", 10L),
+                new EmployeeDetail(7, "Bela", "Finance", 26, "Female","Delhi", 15L)
         );
 
 
@@ -76,5 +77,30 @@ public class StreamPracticeMain {
         * Find the department who is having maximum number of employee
         * */
         streamPractice.findDepartmentWithMaximumEmployee(employees);
+
+        /*
+        * Find the Employee who stays in Delhi and sort them by their names
+        * */
+        streamPractice.findAndSortEmployeeStaysInDelhi(employees);
+
+        /*
+        * Find the average salary in all departments
+        * */
+        streamPractice.findAverageSalaryInAllDepartment(employees);
+
+        /*
+        * Find the highest salary in each department
+        * */
+        streamPractice.findHighestSalaryInEachDepartment(employees);
+
+        /*
+        * Find the list of employee and sort them by their salary
+        * */
+        streamPractice.listOfEmployeeSortWithSalary(employees);
+
+        /*
+        * Find the employee who has second-highest salary
+        * */
+        streamPractice.find2ndHighestSalariedEmployee(employees);
     }
 }
