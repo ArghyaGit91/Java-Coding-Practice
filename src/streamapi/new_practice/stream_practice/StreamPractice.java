@@ -1,10 +1,10 @@
 package streamapi.new_practice.stream_practice;
 
-import streamapi.new_practice.Employee;
 import streamapi.new_practice.stream_practice.pojo.EmployeeDetail;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.function.Function;
 
 public class StreamPractice {
     public void findListOfNameStartWithA(List<String> nameList) {
@@ -152,4 +152,24 @@ public class StreamPractice {
 
 //        Map<String, Long> result = employeeDetail.stream().map(e -> Map.of(e.getName(), e.getSalary()));
     }
+
+
+    public void countWords(List<String> words){
+
+	    Map<String, Long> result = words.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+	    System.out.println("Count words frequency: "+result);
+    }
+
+    public void countOccurrenceOfDuplicateStrings(List<String> words){
+
+        Map<String, Long> result = words.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Map<String, Long> duplicateResult = result.entrySet().stream().filter(word -> word.getValue() > 1)
+                .collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue(),
+                        (a, b) -> a,
+                        () -> new HashMap<>()));
+
+        System.out.println("Count duplicate words frequency: "+duplicateResult);
+    }
+
 }

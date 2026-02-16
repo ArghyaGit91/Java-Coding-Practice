@@ -8,7 +8,11 @@ import java.util.List;
 public class StreamPracticeMain {
     public static void main(String[] args){
         StreamPractice streamPractice = new StreamPractice();
+        NonStream nonStream = new NonStream();
+        String input = "java";
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
+
+	List<String> words = Arrays.asList("Java", "Spring", "Boot", "Microservices", "Spring", "Cloud", "aabbcdde");
 
         List<EmployeeDetail> employees = List.of(
                 new EmployeeDetail(1, "Amit", "IT", 35, "Male", "Delhi", 35L),
@@ -102,5 +106,20 @@ public class StreamPracticeMain {
         * Find the employee who has second-highest salary
         * */
         streamPractice.find2ndHighestSalariedEmployee(employees);
+
+	    /*
+        * Count words
+        * */
+	    streamPractice.countWords(words);
+
+        /*
+         * Frequency of words
+         * */
+        streamPractice.countOccurrenceOfDuplicateStrings(words);
+
+        /*
+        * write a java program to calculate frequency of each character of string without using HashMap
+        * */
+        nonStream.frequencyOfEachCharacter(input);
     }
 }
