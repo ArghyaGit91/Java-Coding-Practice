@@ -172,4 +172,14 @@ public class StreamPractice {
         System.out.println("Count duplicate words frequency: "+duplicateResult);
     }
 
+    public void findNonRepeatingWords(List<String> words){
+
+        Map<String, Long> result = words.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        List<String> nonRepeatingWords = result.entrySet().stream().filter(word -> word.getValue() == 1).map(e->e.getKey()).toList();
+
+
+        System.out.println("Find non-repeating words: "+nonRepeatingWords);
+    }
+
 }

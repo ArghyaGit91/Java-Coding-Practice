@@ -121,5 +121,15 @@ public class StreamPracticeMain {
         * write a java program to calculate frequency of each character of string without using HashMap
         * */
         nonStream.frequencyOfEachCharacter(input);
+
+        /*
+        * Find non repeating words from the list
+        * */
+        streamPractice.findNonRepeatingWords(words);
+
+        /*
+        * find non repeating characters from a String
+        * */
+        nonStream.findNonRepeatingCharacters(input);
     }
 }
