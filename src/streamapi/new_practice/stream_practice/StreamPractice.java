@@ -5,6 +5,7 @@ import streamapi.new_practice.stream_practice.pojo.EmployeeDetail;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class StreamPractice {
     public void findListOfNameStartWithA(List<String> nameList) {
@@ -180,6 +181,58 @@ public class StreamPractice {
 
 
         System.out.println("Find non-repeating words: "+nonRepeatingWords);
+    }
+
+    public void findNonRepeatingCharacters(String input) {
+        Stream<Character> streamOfCharacters = input.chars().mapToObj(c -> (char) c);
+
+        Map<Character, Long> mapOfChars =
+                streamOfCharacters.collect(
+                        Collectors.groupingBy(
+                                ch -> ch,
+                                () -> new LinkedHashMap<Character, Long>(),
+                                Collectors.counting()
+                        )
+                );
+
+        System.out.println("Non repeating characters: Map(All): "+mapOfChars);
+
+        List<Character> resultNonRepeatingCharacters =
+                mapOfChars.entrySet().stream().filter(entry -> entry.getValue() == 1)
+                        .map(entry -> entry.getKey()).toList();
+
+        System.out.println("Non repeating characters: final output: "+resultNonRepeatingCharacters);
+
+    }
+    public void findFirstNonRepeatingCharacter(String input) {
+        Stream<Character> streamOfCharacters = input.chars().mapToObj(c -> (char) c);
+
+        Map<Character, Long> mapOfChars =
+                streamOfCharacters.collect(
+                        Collectors.groupingBy(
+                                ch -> ch,
+                                () -> new LinkedHashMap<Character, Long>(),
+                                Collectors.counting()
+                        )
+                );
+
+        System.out.println("Non repeating characters: Map(All): "+mapOfChars);
+
+        Character result =
+                mapOfChars.entrySet().stream().filter(entry -> entry.getValue() == 1)
+                        .map(entry -> entry.getKey()).findFirst().orElse(null);
+
+        System.out.println("First Non repeating character: final output: "+result);
+
+    }
+
+    public void findLongestStringFromList(List<String> words){
+        String longestString =
+                words.stream().max(Comparator.comparingInt(
+                        item -> item.length()
+                )).orElse(null);
+
+        System.out.println("Find Longest String: "+longestString);
     }
 
 }

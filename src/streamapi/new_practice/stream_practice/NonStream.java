@@ -17,25 +17,5 @@ public class NonStream {
         );
     }
 
-    public void findNonRepeatingCharacters(String input) {
-        Stream<Character> streamOfCharacters = input.chars().mapToObj(c -> (char) c);
 
-        Map<Character, Long> mapOfChars =
-                streamOfCharacters.collect(
-                        Collectors.groupingBy(
-                                ch -> ch,
-                                () -> new LinkedHashMap<Character, Long>(),
-                                Collectors.counting()
-                        )
-                );
-
-        System.out.println("Non repeating characters: Map(All)"+mapOfChars);
-
-        List<Character> resultNonRepeatingCharacters =
-                mapOfChars.entrySet().stream().filter(entry -> entry.getValue() == 1)
-                .map(entry -> entry.getKey()).toList();
-
-        System.out.println("Non repeating characters: final output: "+resultNonRepeatingCharacters);
-
-    }
 }

@@ -130,6 +130,16 @@ public class StreamPracticeMain {
         /*
         * find non repeating characters from a String
         * */
-        nonStream.findNonRepeatingCharacters(input);
+        streamPractice.findNonRepeatingCharacters(input);
+
+        /*
+         * find first non repeating character from a String
+         * */
+        streamPractice.findFirstNonRepeatingCharacter(input);
+
+        /*
+        * find Longest String from a List
+        * */
+        streamPractice.findLongestStringFromList(words);
     }
 }
