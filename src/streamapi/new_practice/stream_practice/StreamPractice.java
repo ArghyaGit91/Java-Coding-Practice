@@ -235,4 +235,33 @@ public class StreamPractice {
         System.out.println("Find Longest String: "+longestString);
     }
 
+    public void groupByStringLength(List<String> words){
+        Map<Integer, List<String>> finalResult =
+                words.stream().collect(Collectors.groupingBy(item -> item.length()));
+
+        System.out.println("Grouping by Length: "+finalResult);
+    }
+
+    public void countEachChracterFrequency(List<String> words){
+        Map<Character, Long> finalResult =
+                words.stream().flatMap(
+                        entry -> entry.chars().mapToObj(
+                                character ->(char) character))
+                        .collect(Collectors.groupingBy(
+                                Function.identity(), Collectors.counting()
+                        ));
+
+        System.out.println("Count Character Frequency Across All Strings: "+finalResult);
+    }
+
+    public void stringStartWithVowel(List<String> words){
+        List<String> result = words.stream().filter(entry -> entry.matches("^[aeiou].*")).toList();
+        System.out.println("Find Strings Starting With Vowel: "+result);
+
+        List<String> result2 = words.stream()
+                .filter(word -> "aeiou".contains(
+                        word.substring(0,1).toLowerCase()))
+                .toList();
+    }
+
 }

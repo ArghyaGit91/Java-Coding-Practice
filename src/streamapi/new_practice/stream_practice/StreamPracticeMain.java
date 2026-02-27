@@ -141,5 +141,20 @@ public class StreamPracticeMain {
         * find Longest String from a List
         * */
         streamPractice.findLongestStringFromList(words);
+
+        /*
+        * Grouping by String length
+        * */
+        streamPractice.groupByStringLength(words);
+
+        /*
+        * Count Character Frequency Across All Strings
+        * */
+        streamPractice.countEachChracterFrequency(words);
+
+        /*
+        * Find Strings Starting With Vowel
+        * */
+        streamPractice.stringStartWithVowel(words);
     }
 }
