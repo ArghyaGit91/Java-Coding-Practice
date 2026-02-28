@@ -264,4 +264,21 @@ public class StreamPractice {
                 .toList();
     }
 
+    public void findHighestFrequencyWords(List<String> words) {
+
+
+        Map<String, Long> freqMap = words.stream().collect(Collectors.groupingBy(
+                w -> w,  Collectors.counting())
+        );
+
+        Long maxFreq = freqMap.values().stream() .max((a, b) -> a.compareTo(b)) .orElse(0L);
+
+        Map<String, Long> highestFreqWords = freqMap.entrySet().stream().filter(entry -> entry.getValue().equals(maxFreq))
+                .collect(Collectors.toMap( e -> e.getKey(), e -> e.getValue() ));
+
+        System.out.println("Highest Frequency Words: "+highestFreqWords);
+
+    }
 }
+
+
