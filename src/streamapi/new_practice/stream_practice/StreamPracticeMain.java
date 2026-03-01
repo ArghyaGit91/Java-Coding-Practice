@@ -10,6 +10,7 @@ public class StreamPracticeMain {
         StreamPractice streamPractice = new StreamPractice();
         NonStream nonStream = new NonStream();
         String input = "java";
+        String str = "madam";
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
 
 	List<String> words = Arrays.asList("Java", "Spring", "Boot", "Microservices", "Spring", "Cloud", "aabbcdde", "Java");
@@ -161,5 +162,10 @@ public class StreamPracticeMain {
         * Find Highest Frequency Words
         * */
         streamPractice.findHighestFrequencyWords(words);
+
+        /*
+         * Find Highest Frequency Characters in a String
+         * */
+        nonStream.findHighestFrequencyOfCharacters(str);
     }
 }

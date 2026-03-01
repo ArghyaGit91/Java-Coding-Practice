@@ -17,5 +17,21 @@ public class NonStream {
         );
     }
 
+    public void findHighestFrequencyOfCharacters(String input){
+        Map<Character, Long> result =
+        input.chars().mapToObj(ch -> (char) ch).collect(Collectors.groupingBy(
+                ch -> ch, Collectors.counting()
+        ));
+
+        Long maxValue = result.values().stream().max((a, b) -> a.compareTo(b)).orElse(null);
+
+        Map<Character, Long> finalResult =
+        result.entrySet().stream().filter(ch -> ch.getValue().equals(maxValue)).collect(Collectors.toMap(
+                ch -> ch.getKey(), ch -> ch.getValue()
+        ));
+
+        System.out.println("Highest Character's Frequency: "+finalResult);
+    }
+
 
 }
