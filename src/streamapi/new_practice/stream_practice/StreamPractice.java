@@ -279,6 +279,25 @@ public class StreamPractice {
         System.out.println("Highest Frequency Words: "+highestFreqWords);
 
     }
+
+    public void filterEmployee(List<EmployeeDetail> employees) {
+
+        List<EmployeeDetail> employeeDetailList =
+                employees.stream().sorted(Comparator.comparing((EmployeeDetail emp) -> emp.getName()).thenComparing(
+                        emp -> emp.getAge()).thenComparing(emp -> emp.getSalary())
+                ).toList();
+
+        employeeDetailList.forEach(emp -> System.out.println(emp.getName()));
+//        System.out.println("Sorted Employee Details: "+employeeDetailList);
+
+        Map<String, List<EmployeeDetail>> employeeDetailMap = employeeDetailList.stream().collect(
+                Collectors.groupingBy(emp -> emp.getName())
+        );
+
+        System.out.println("Sorted & Mapped Employee Details: "+employeeDetailMap);
+
+
+    }
 }
 
 

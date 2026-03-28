@@ -22,7 +22,8 @@ public class StreamPracticeMain {
                 new EmployeeDetail(4, "Priya", "Finance",28, "Female","UP", 15L),
                 new EmployeeDetail(5, "Suresh", "HR", 37, "Male","Bihar", 10L),
                 new EmployeeDetail(6, "Animesh", "Civil", 26, "Male","Kolkata", 10L),
-                new EmployeeDetail(7, "Bela", "Finance", 26, "Female","Delhi", 15L)
+                new EmployeeDetail(7, "Bela", "Finance", 26, "Female","Delhi", 15L),
+                new EmployeeDetail(8, "Bela", "Finance", 26, "Female","Delhi", 16L)
         );
 
 
@@ -167,5 +168,14 @@ public class StreamPracticeMain {
          * Find Highest Frequency Characters in a String
          * */
         nonStream.findHighestFrequencyOfCharacters(str);
+
+
+/*      Sort by name
+        If same → sort by age
+        If same → sort by salary
+        If everything same → keep all records (no filtering, just sorting)*/
+
+        streamPractice.filterEmployee(employees);
+
     }
 }
