@@ -13,7 +13,7 @@ public class StreamPracticeMain {
         String str = "madam";
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
 
-	List<String> words = Arrays.asList("Java", "Spring", "Boot", "Microservices", "Spring", "Cloud", "aabbcdde", "Java");
+	    List<String> words = Arrays.asList("Java", "Spring", "Boot", "Microservices", "Spring", "Cloud", "aabbcdde", "Java");
 
         List<EmployeeDetail> employees = List.of(
                 new EmployeeDetail(1, "Amit", "IT", 35, "Male", "Delhi", 35L),
@@ -170,10 +170,12 @@ public class StreamPracticeMain {
         nonStream.findHighestFrequencyOfCharacters(str);
 
 
-/*      Sort by name
-        If same → sort by age
-        If same → sort by salary
-        If everything same → keep all records (no filtering, just sorting)*/
+        /*
+        * Sort by name
+        *If same → sort by age
+        *If same → sort by salary
+        *If everything same → keep all records (no filtering, just sorting)
+        * */
 
         streamPractice.filterEmployee(employees);
 

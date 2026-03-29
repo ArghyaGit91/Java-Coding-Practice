@@ -298,6 +298,13 @@ public class StreamPractice {
 
 
     }
+
+    public void listOfEmployeesStartsWithA(List<EmployeeDetail> employeeDetailList){
+
+        List<String> employeeList = employeeDetailList.stream().filter(emp -> emp.getName().startsWith("A"))
+                .map(emp -> emp.getName()).toList();
+
+    }
 }
 
 
