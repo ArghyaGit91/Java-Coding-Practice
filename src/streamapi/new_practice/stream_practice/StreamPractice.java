@@ -55,6 +55,13 @@ public class StreamPractice {
         System.out.println("List of Employee Age Under 30: "+ employeeList);
         System.out.println("List of Employee Name Age Under 30: "+ employeeNames);
 
+        Map<String, Integer> result = employees.stream().filter(emp -> emp.getAge() < 30).collect(Collectors.toMap(
+                emp -> emp.getName(),
+                emp -> emp.getAge(),
+                (existing, replacement) -> existing
+        ));
+
+        System.out.println("Employee With Age under 30: "+result);
     }
 
     public void ageBetween26To31(List<EmployeeDetail> employees) {
