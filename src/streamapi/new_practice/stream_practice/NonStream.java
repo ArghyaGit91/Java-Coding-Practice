@@ -1,9 +1,6 @@
 package streamapi.new_practice.stream_practice;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,6 +28,26 @@ public class NonStream {
         ));
 
         System.out.println("Highest Character's Frequency: "+finalResult);
+    }
+
+    public void removeAndRemoveDuplicateChars(String input){
+
+        String reversedString = new StringBuilder(input).reverse().toString();
+
+        Set<Character> setUniqueChars = new LinkedHashSet<>();
+        char[] charArr = reversedString.toCharArray();
+        for (char ch : charArr){
+            setUniqueChars.add(ch);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Character ch : setUniqueChars){
+            stringBuilder.append(ch);
+        }
+
+        System.out.println("Input String: "+input);
+        System.out.println("After removing duplicate Character updated String: "+stringBuilder);
+
     }
 
 

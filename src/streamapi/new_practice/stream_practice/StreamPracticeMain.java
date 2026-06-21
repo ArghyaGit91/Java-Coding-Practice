@@ -13,6 +13,8 @@ public class StreamPracticeMain {
         String str = "madam";
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
 
+        String obj = "Hello World";
+
 	    List<String> words = Arrays.asList("Java", "Spring", "Boot", "Microservices", "Spring", "Cloud", "aabbcdde", "Java");
 
         List<EmployeeDetail> employees = List.of(
@@ -25,6 +27,12 @@ public class StreamPracticeMain {
                 new EmployeeDetail(7, "Bela", "Finance", 26, "Female","Delhi", 15L),
                 new EmployeeDetail(8, "Bela", "Finance", 26, "Female","Delhi", 16L)
         );
+
+        /*
+        * Reverse a String, then remove duplicate characters and then updated String using without stream
+        * */
+
+        nonStream.removeAndRemoveDuplicateChars(input);
 
 
         /*
@@ -178,6 +186,12 @@ public class StreamPracticeMain {
         * */
 
         streamPractice.filterEmployee(employees);
+
+        /*
+         * Reverse a String, then remove duplicate characters and then updated String
+         * using stream
+         * */
+        streamPractice.removeAndRemoveDuplicateChars(input);
 
     }
 }

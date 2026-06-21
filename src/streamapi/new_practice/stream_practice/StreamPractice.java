@@ -118,7 +118,8 @@ public class StreamPractice {
         System.out.println("Find Department With Maximum Employee: "+ result);
 //                .entrySet().stream().max(Map.Entry.comparingByValue()).map(optEmp -> Map.of(optEmp.getKey(), optEmp.getValue()))
 //                .orElse(Collections.emptyMap());
-        Map<String, Long> finalResult = result.entrySet().stream().max(Map.Entry.comparingByValue()).map(e-> Map.of(e.getKey(), e.getValue())).orElse(Collections.emptyMap());
+        Map<String, Long> finalResult = result.entrySet().stream().max(Map.Entry.comparingByValue())
+                .map(e-> Map.of(e.getKey(), e.getValue())).orElse(Collections.emptyMap());
 
         System.out.println("Find Final Result Department With Maximum Employee: "+ finalResult);
     }
@@ -146,6 +147,7 @@ public class StreamPractice {
                         employee -> Map.of(employee.getName(), employee.getSalary())
                 ).orElse(Collections.emptyMap())
         )));
+
 
         System.out.println("Find highest salary in each department: "+result);
 
@@ -317,6 +319,16 @@ public class StreamPractice {
         List<String> employeeList = employeeDetailList.stream().filter(emp -> emp.getName().startsWith("A"))
                 .map(emp -> emp.getName()).toList();
 
+    }
+
+    public void removeAndRemoveDuplicateChars(String input) {
+        String result = new StringBuilder(input).reverse().toString()
+                .chars()
+                .distinct()
+                .mapToObj(ch -> String.valueOf((char) ch))
+                .collect(Collectors.joining());
+
+        System.out.println("Reverse a String then Remove duplicate characters using Stream: "+result);
     }
 }
 
