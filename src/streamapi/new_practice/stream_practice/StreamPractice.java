@@ -330,6 +330,13 @@ public class StreamPractice {
 
         System.out.println("Reverse a String then Remove duplicate characters using Stream: "+result);
     }
+
+    public void removeDuplicateAndPreserveOrder(List<String> names) {
+
+        List<String> result = names.stream().distinct().toList();
+        System.out.println("Remove duplicate Strings and Preserve Order with Stream: "+result);
+
+    }
 }
 
 

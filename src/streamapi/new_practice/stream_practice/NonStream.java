@@ -51,4 +51,11 @@ public class NonStream {
     }
 
 
+    public void removeDuplicateAndPreserveOrder(List<String> names) {
+        List<String> result = new ArrayList<>(
+                new LinkedHashSet<>(names)
+        );
+
+        System.out.println("Remove duplicate Strings and Preserve Order Without Stream: "+result);
+    }
 }

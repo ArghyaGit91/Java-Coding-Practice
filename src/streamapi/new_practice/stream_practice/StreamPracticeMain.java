@@ -12,6 +12,7 @@ public class StreamPracticeMain {
         String input = "java";
         String str = "madam";
         List<String> nameList = Arrays.asList("Arghya", "Rahul", "Anita", "Suman", "Amit");
+        List<String> names = Arrays.asList("Amit", "Ravi", "Amit", "Neha", "Ravi", "Priya");
 
         String obj = "Hello World";
 
@@ -192,6 +193,12 @@ public class StreamPracticeMain {
          * using stream
          * */
         streamPractice.removeAndRemoveDuplicateChars(input);
+
+        /*
+        * Write a java program remove duplicate strings from list but preserve order
+        * */
+        nonStream.removeDuplicateAndPreserveOrder(names);
+        streamPractice.removeDuplicateAndPreserveOrder(names);
 
     }
 }
